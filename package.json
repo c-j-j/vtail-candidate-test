@@ -1,4 +1,7 @@
 {
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
     "@types/node": "^17.0.21",
     "aws-sdk": "^2.1080.0",
@@ -10,6 +13,10 @@
     "webpack": "^5.69.1"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
+    "@types/jest": "^27.4.1",
+    "jest": "^27.5.1",
     "prettier": "^2.5.1"
   }
 }

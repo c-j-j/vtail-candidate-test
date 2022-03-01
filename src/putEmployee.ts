@@ -4,7 +4,7 @@ import { saveEmployees } from "./services/saveEmployees";
 const validate = (event: IEventWithPutEmployeesArguments) => {
   const { employees, businessUnitId, companyId } = event.body;
 
-  if (employees.length === 0) {
+  if (!employees || employees.length === 0) {
     throw new Error("No employees specified in input");
   }
 
