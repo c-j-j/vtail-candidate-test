@@ -4,7 +4,7 @@ export interface IState {
   code: string;
   name: string;
 }
-export interface IPutEmployee {
+export interface IEmployee {
   id: string;
   firstName: string;
   lastName: string;
@@ -20,7 +20,7 @@ export interface IPutEmployee {
 export interface IPutEmployeesArguments {
   businessUnitId: string;
   companyId: string;
-  employees: IPutEmployee[];
+  employees: IEmployee[];
 }
 
 export interface IEventWithPutEmployeesArguments {
