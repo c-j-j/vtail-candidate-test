@@ -39,6 +39,23 @@ describe("saveEmployees", () => {
     ]);
   });
 
+  it("returns saved users", async () => {
+    const employees = await saveEmployees(
+      [fakeEmployee],
+      "some-business-id",
+      "some-company-id"
+    );
+    expect(employees).toEqual([
+      {
+        ...fakeEmployee,
+        PK: `EMPLOYEE#${fakeEmployee.id}`,
+        SK: `EMPLOYEE#${fakeEmployee.id}`,
+        businessUnitId: "some-business-id",
+        companyId: "some-company-id",
+      },
+    ]);
+  });
+
   it("does not save users to dynamo when saving to cognito fails for any user", () => {
     (createUser as jest.Mock).mockRejectedValueOnce("Simulated error");
     expect(batchWrite).not.toHaveBeenCalled();

@@ -30,7 +30,7 @@ describe("putEmployee", () => {
     });
   });
 
-  it("saves and returns employees", async () => {
+  it("saves employees", async () => {
     const event: IEventWithPutEmployeesArguments = {
       body: {
         employees: [fakeEmployee],
@@ -39,6 +39,7 @@ describe("putEmployee", () => {
       },
     };
     const savedEmployees = await putEmployees(event);
+
     expect(savedEmployees.length).toEqual(1);
   });
 });

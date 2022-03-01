@@ -8,7 +8,7 @@ export const saveEmployees = async (
   employees: IEmployee[],
   businessUnitId: string,
   companyId: string
-) => {
+): Promise<IDynamoDBEmployee[]> => {
   const tableName = process.env.TABLE_NAME as string;
 
   await createCognitoEmployeeUsers(employees);
@@ -17,7 +17,8 @@ export const saveEmployees = async (
     transformToEmployeeItem(employee, businessUnitId, companyId)
   );
 
-  return batchWrite(tableName, employeeItems);
+  await batchWrite(tableName, employeeItems);
+  return employeeItems;
 };
 
 const createCognitoEmployeeUsers = async (
