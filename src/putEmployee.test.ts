@@ -39,6 +39,11 @@ describe("putEmployee", () => {
       },
     };
     const savedEmployees = await putEmployees(event);
+    expect(saveEmployees).toHaveBeenCalledWith(
+      [fakeEmployee],
+      "some-business-unit-id",
+      "some-company-id"
+    );
 
     expect(savedEmployees.length).toEqual(1);
   });
